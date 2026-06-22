@@ -102,11 +102,7 @@ body {
 .menu-container h2 {
     font-size: clamp(2.4rem, 5vw, 4rem);
 
-    background: rgba(255, 255, 255, 0.2);
-
     backdrop-filter: blur(15px);
-
-    border: 1px solid rgba(255, 255, 255, 0.3);
 
     color: white;
 
@@ -122,9 +118,9 @@ body {
 
     text-align: center;
 
-    color: rgba(255, 255, 255, 0.9);
+    color: rgba(226, 19, 174, 0.9);
 
-    font-size: clamp(0.95rem, 2vw, 1.2rem);
+    font-size: italic(0.95rem, 2vw, 1.2rem);
 }
 
 /* menu */
@@ -667,6 +663,8 @@ body {
 }
 /* flèches */
 
+/* boutons */
+
 .nav {
     position: absolute;
 
@@ -674,35 +672,53 @@ body {
 
     transform: translateY(-50%);
 
-    width: 55px;
+    width: 65px;
 
-    height: 55px;
+    height: 65px;
 
     border: none;
 
     border-radius: 50%;
 
-    background: rgba(255, 255, 255, 0.75);
+    background: rgba(255, 255, 255, 0.22);
 
-    backdrop-filter: blur(20px);
+    backdrop-filter: blur(15px);
 
-    font-size: 22px;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+
+    font-size: 24px;
+
+    color: #ff5fa2;
+
+    cursor: pointer;
+
+    /* caché au départ */
 
     opacity: 0;
 
-    transition: 0.5s;
+    pointer-events: none;
+
+    transition:
+        opacity 0.5s ease,
+        transform 0.5s ease;
+
+    z-index: 20;
 }
 
-.carousel.show-nav .nav {
+/* visible */
+
+.carousel.show-controls .nav {
     opacity: 1;
+
+    pointer-events: auto;
 }
 
 .left {
-    left: 15px;
+    left: 20px;
 }
 
 .right {
-    right: 15px;
+    right: 20px;
 }
 
 /* barre */
