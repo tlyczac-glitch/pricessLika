@@ -182,4 +182,70 @@ window.onload = () => {
     document.querySelector(".right").addEventListener("click", next);
     document.querySelector(".left").addEventListener("click", previous);
 
+
+
+    const carousel =
+
+        document.querySelector(
+            ".carousel"
+        );
+
+    let controlsTimeout;
+
+    /* clic image */
+
+    carousel
+
+        .addEventListener(
+            "click",
+
+            () => {
+
+                carousel
+
+                    .classList
+
+                    .toggle(
+                        "show-controls"
+                    );
+
+                /* reset timer */
+
+                clearTimeout(
+                    controlsTimeout
+                );
+
+                if (
+
+                    carousel
+
+                        .classList
+
+                        .contains(
+                            "show-controls"
+                        )
+
+                ) {
+
+                    controlsTimeout =
+
+                        setTimeout(() => {
+
+                            carousel
+
+                                .classList
+
+                                .remove(
+                                    "show-controls"
+                                );
+
+                        }, 4000);
+
+                }
+
+            });
+
+
 }
+
+
