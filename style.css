@@ -102,6 +102,12 @@ body {
 .menu-container h2 {
     font-size: clamp(2.4rem, 5vw, 4rem);
 
+    background: rgba(255, 255, 255, 0.2);
+
+    backdrop-filter: blur(15px);
+
+    border: 1px solid rgba(255, 255, 255, 0.3);
+
     color: white;
 
     text-align: center;
@@ -545,44 +551,85 @@ body {
 
 /* CAROUSEL */
 
+/* CAROUSEL */
+
 .carousel {
     position: relative;
 
     overflow: hidden;
 
-    border-radius: 35px;
+    border-radius: 40px;
+
+    /* effet glace */
+
+    background: rgba(255, 255, 255, 0.18);
+
+    backdrop-filter: blur(18px);
+
+    -webkit-backdrop-filter: blur(18px);
+
+    /* bord lumineux */
+
+    border: 1px solid rgba(255, 255, 255, 0.35);
+
+    /* profondeur */
+
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.12),
+        0 0 40px rgba(255, 170, 220, 0.25),
+        inset 0 1px 1px rgba(255, 255, 255, 0.4);
 }
 
-/* IMAGE */
+/* reflet */
+
+.carousel::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+
+    left: -120%;
+
+    width: 80%;
+
+    height: 100%;
+
+    z-index: 4;
+
+    pointer-events: none;
+
+    background: linear-gradient(115deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+
+    transition: 2.5s ease;
+}
+
+/* passage lumière */
+
+.carousel:hover::before {
+    left: 180%;
+}
+
+/* image */
 
 .carousel img {
     width: 100%;
 
-    aspect-ratio: 4/5;
+    display: block;
 
     object-fit: cover;
 
-    display: block;
-
-    opacity: 1;
-
-    transform: scale(1);
+    border-radius: 40px;
 
     transition:
-        opacity 0.8s ease,
-        transform 2s ease;
+        transform 6s ease,
+        opacity 1.4s ease;
 }
 
-/* transition */
+/* petit zoom */
 
-.carousel img.fade {
-    opacity: 0.15;
-
-    transform: scale(1.03);
-}
-
-.fade {
-    opacity: 0.2;
+.carousel:hover img {
+    transform: scale(1.02);
 }
 
 /* barre */
